@@ -52,7 +52,7 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               title: Text(
-                "mail",
+                "email",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
