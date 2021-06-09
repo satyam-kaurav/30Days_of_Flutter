@@ -41,16 +41,38 @@ class _HomePageState extends State<HomePage> {
         title: Text("Catalog App"),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: CatalogModel.items.length,
-          itemBuilder: (context, index) {
-            return ItemWidget(
-              item: CatalogModel.items[index],
-            );
-          },
-        ),
-      ),
+          padding: const EdgeInsets.all(16.0),
+          child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 16,
+              crossAxisSpacing: 10,
+            ),
+            itemBuilder: (context, index) {
+              final item = CatalogModel.items[index];
+              return Card(
+                  clipBehavior: Clip.antiAlias,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)),
+                  child: GridTile(
+                    header: Container(
+                      child: Text(
+                        item.name,
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      padding: const EdgeInsets.all(6),
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurple,
+                      ),
+                    ),
+                    child: Image.network(item.image),
+                    footer: Text(
+                      item.price.toString(),
+                    ),
+                  ));
+            },
+            itemCount: CatalogModel.items.length,
+          )),
       drawer: MyDrawer(),
     );
   }
