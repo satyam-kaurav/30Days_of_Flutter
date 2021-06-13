@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -8,7 +9,7 @@ class MyTheme {
         fontFamily: GoogleFonts.poppins().fontFamily,
         cardColor: Colors.white,
         canvasColor: creamColor,
-        buttonColor: darkBluishColor,
+        buttonColor: Colors.amber,
         accentColor: darkBluishColor,
         appBarTheme: AppBarTheme(
           color: Colors.white,
